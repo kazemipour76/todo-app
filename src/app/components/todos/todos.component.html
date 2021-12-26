@@ -1,0 +1,11 @@
+<div class="row-cols-2 g-3 align-items-center mt-5">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button class="nav-link " id="nav-home-tab"  type="button" role="tab" [ngClass]="{'active' :!doneStatus}" (click)="doneStatus=false" aria-selected="true">undone |{{undoneTodos.length}} </button>
+      <button class="nav-link" id="nav-profile-tab"  type="button" role="tab" [ngClass]="{'active' : doneStatus}" (click)="doneStatus=true" aria-selected="false">done|{{donTodos.length}}</button>
+    </div>
+  </nav>
+  <div class="tab-content mt-2" id="nav-tabContent">
+    <todo [todoItem]="filterTodos" (done)="toggleTodo($event)" (delete)="deleteTodo($event)" ></todo>
+  </div>
+</div>
