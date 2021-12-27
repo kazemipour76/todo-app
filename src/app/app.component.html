@@ -1,6 +1,6 @@
 <app-header></app-header>
 <main class="container flex-shrink-0 mt-5">
-      <form-add-todo (add)="addTodo($event)" class="row g-3 align-items-center" > </form-add-todo>
-  <app-todos [todos]="todos" (done)="toggleTodo($event)" (delete)="deleteTodo($event)"></app-todos>
-
+<!--      <form-add-todo class="row g-3 align-items-center" > </form-add-todo>-->
+<!--  <app-todos [todos]="todos" ></app-todos>-->
+  <router-outlet></router-outlet>
 </main>

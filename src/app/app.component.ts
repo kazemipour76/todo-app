@@ -1,35 +1,23 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TodoModel} from "./shared/todo.model";
+import {TodoService} from "./services/todo.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // providers :[TodoService]
 })
-export class AppComponent {
-  todos:any = [];
-  addTodo(todo:any) {
-    this.todos=[
-      ...this.todos, {key:Date.now(),done:false,text:todo}
-    ]
-    // console.log(this.todos)
+export class AppComponent implements OnInit{
+  // todos:any = [];
+  // constructor(private todoServices: TodoService) {
+  // }
+  ngOnInit() {
+    // this.todos=this.todoServices.getTodo();
+    // this.todoServices.todosChanged.subscribe(todos=> this.todos=todos);
   }
 
-  deleteTodo($event: Date) {
 
-    this.todos = this.todos.filter((item:any) => item.key !== $event);
-  }
 
-  toggleTodo($event: Date) {
 
-    this.todos = this.todos.map((item:any)=>{
-      if (item.key===$event){
-        return{
-          ...item,
-          done:! item.done
-        }
-      }
-      return item;
-    })
-  }
 }
